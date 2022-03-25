@@ -29,7 +29,7 @@ def index():
         p_livingroom = request.form.get("p_livingroom")
         print(longitude, latitude, microwave,smoking_allowed,p_livingroom)
         model = joblib.load("Automatic_Price_Generator")
-        pred = GradientBoosting_model.predict([[float(longitude), float(latitude),float(microwave),float(smoking_allowed),float(p_livingroom)]])
+        pred = model.predict([[float(longitude), float(latitude),int(microwave),int(smoking_allowed),int(p_livingroom)]])
         print(pred)
         pred = pred[0]
         s = "The predicted price for your apartment is " + str(pred)
