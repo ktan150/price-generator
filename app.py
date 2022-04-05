@@ -27,7 +27,7 @@ def index():
         microwave = request.form.get("microwave")
         smoking_allowed = request.form.get("smoking_allowed")
         p_livingroom = request.form.get("p_livingroom")
-        print(longitude, latitude, microwave,smoking_allowed,p_livingroom)
+        print(latitude, longitude, microwave,smoking_allowed,p_livingroom)
         model = joblib.load("Automatic_Price_Generator")
         pred = model.predict([[float(latitude), float(longitude),int(microwave),int(smoking_allowed),int(p_livingroom)]])
         print(pred)
